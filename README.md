@@ -1,31 +1,46 @@
-# Backend Internship Task – User Registration System
+# Backend Project – User Registration System
 
-This is a simple backend application built with **Node.js**, **Express**, and **MongoDB** for registering users (volunteers or interns) and allowing an admin to view the list of all registered users.
+## 💼 Project Info
 
-## 🔧 Tech Stack
+A simple backend API for:
+- Registering users (volunteers/interns)
+- Logging in
+- Viewing all registered users (admin-only access)
+
+## 🛠️ Tech Stack
 
 - Node.js
 - Express.js
-- MongoDB + Mongoose
-- bcryptjs (for password hashing)
-- JSON Web Token (JWT) for authentication
-- dotenv
+- MongoDB
+- JWT Authentication
 
----
+## 📦 API Endpoints
 
-## 🚀 Features
+### Register User
+POST /api/register`
 
-- Register users with role (`intern`, `volunteer`, or `admin`)
-- Secure password hashing using bcrypt
-- JWT-based login authentication
-- Admin-only route to view all registered users
+Body:
+{
+  "name": "John",
+  "email": "john@example.com",
+  "password": "123456",
+  "role": "intern"
+}
 
----
+Login User
+POST /api/login
 
-## 📦 Setup Instructions
+Body:
+{
+  "email": "john@example.com",
+  "password": "123456"
+}
+Returns: token
 
-1. Clone the repo:
+Get All Users (Admin Only)
+GET /api/users
 
-```bash
-https://github.com/moinkhan12A/volunteer-backendr-username/intern-backend-task.git
-cd intern-backend-task
+Headers:
+Authorization: Bearer <admin_token>
+
+
