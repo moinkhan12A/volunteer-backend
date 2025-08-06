@@ -42,5 +42,5 @@ GET /api/users
 
 Headers:
 Authorization: Bearer <admin_token>
-
+return all users
 
